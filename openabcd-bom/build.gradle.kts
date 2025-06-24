@@ -1,6 +1,4 @@
 plugins {
-    id("io.github.openabcd.plugin-common-conventions")
-
     `java-platform`
 }
 
