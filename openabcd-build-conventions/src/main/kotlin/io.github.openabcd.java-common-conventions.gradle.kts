@@ -8,8 +8,6 @@ plugins {
     java
 
     id("io.github.openabcd.java-formatter-conventions")
-
-    id("io.github.openabcd.java-lombok-conventions")
 }
 
 java {

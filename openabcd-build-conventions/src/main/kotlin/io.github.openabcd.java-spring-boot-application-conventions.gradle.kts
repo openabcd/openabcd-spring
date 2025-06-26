@@ -1,3 +1,5 @@
+import gradle.kotlin.dsl.accessors._6a12861c6e374afcfcd36a56f9192f9f.implementation
+import gradle.kotlin.dsl.accessors._6a12861c6e374afcfcd36a56f9192f9f.testImplementation
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 import org.springframework.boot.gradle.tasks.run.BootRun
 
@@ -5,9 +7,14 @@ plugins {
     id("io.github.openabcd.java-common-conventions")
 
     id("org.springframework.boot")
+
+    id("io.freefair.lombok")
+
+    id("com.epages.restdocs-api-spec")
 }
 
 dependencies {
+    implementation(platform(":openabcd-bom"))
     implementation(platform(SpringBootPlugin.BOM_COORDINATES))
     annotationProcessor(platform((SpringBootPlugin.BOM_COORDINATES)))
 
@@ -19,6 +26,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+
+    testImplementation("com.epages:restdocs-api-spec-restassured")
 }
 
 val bootRun by tasks.getting(BootRun::class) {

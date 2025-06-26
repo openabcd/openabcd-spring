@@ -5,6 +5,11 @@ pluginManagement {
     if (conventionPath.exists()) {
         includeBuild(conventionPath)
     }
+
+    val bomPath = file("../openabcd-bom")
+    if (bomPath.exists()) {
+        includeBuild(bomPath)
+    }
 }
 
 dependencyResolutionManagement {

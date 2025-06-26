@@ -8,6 +8,8 @@ plugins {
     id("io.github.openabcd.java-common-conventions")
 
     id("org.springframework.boot") apply false
+
+    id("io.freefair.lombok")
 }
 
 dependencies {
