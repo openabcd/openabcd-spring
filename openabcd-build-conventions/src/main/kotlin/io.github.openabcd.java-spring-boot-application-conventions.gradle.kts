@@ -27,6 +27,7 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 
+    testImplementation("io.rest-assured:rest-assured")
     testImplementation("com.epages:restdocs-api-spec-restassured")
 }
 
@@ -39,7 +40,7 @@ val bootRun by tasks.getting(BootRun::class) {
     jvmArgs(listOf("-XX:+ShowCodeDetailsInExceptionMessages"))
 }
 
-val test by tasks.getting(Test::class) {
+tasks.withType<Test> {
+    useJUnitPlatform()
     jvmArgs(listOf("-XX:+ShowCodeDetailsInExceptionMessages", "-Dspring.profiles.active=test"))
 }
-
