@@ -16,6 +16,8 @@
  
 package io.github.openabcd.springframework.boot;
 
+import java.util.Map;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,16 +25,19 @@ public class HelloController {
 
     public record RequestBodyDto(String message) {}
 
-    @GetMapping
-    public String hello(
+    @PostMapping("/hello")
+    public ResponseEntity<Map<String, String>> hello(
             @RequestHeader("Cloud-Header-1") String header,
             @RequestParam("name") String name,
             @RequestBody RequestBodyDto request) {
-        return """
+        var formattedMsg =
+                """
                 Hello, %s!
                 Your header is %s and
                 your message is: %s
                 """
-                .formatted(name, header, request.message());
+                        .formatted(name, header, request.message());
+
+        return ResponseEntity.ok(Map.of("message", formattedMsg));
     }
 }

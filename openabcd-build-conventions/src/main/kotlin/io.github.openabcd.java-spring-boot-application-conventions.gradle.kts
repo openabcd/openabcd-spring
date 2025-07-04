@@ -27,8 +27,8 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 
-    testImplementation("io.rest-assured:rest-assured")
     testImplementation("com.epages:restdocs-api-spec-restassured")
+    testImplementation("org.springframework.restdocs:spring-restdocs-restassured")
 }
 
 val bootRun by tasks.getting(BootRun::class) {

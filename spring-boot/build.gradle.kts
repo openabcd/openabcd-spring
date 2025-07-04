@@ -13,7 +13,6 @@ dependencies {
 openapi3 {
     title = "Openabcd API"
     description = "Openabcd API Documentation"
-//    tagDescriptionsPropertiesFile = "src/docs/tag-descriptions.yaml"
     version = "0.0.1"
     format = "yaml"
 }
